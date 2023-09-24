@@ -1,4 +1,10 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue"
+import App from "./App.vue"
+import SVG from "./components/svg/index.vue"
+import "./styles/tailwind.css";
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+app.component("SVG", SVG)
+
+app.mount("#app")

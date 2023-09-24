@@ -8,7 +8,6 @@ export const getStorage = (key: string) => {
   if (!key) Promise.reject("没有key！")
   if (!localStorage.getItem(key)) return null
   const value = localStorage.getItem(key) as string
-  console.log("value", value)
   if (value.includes("{")) return JSON.parse(value)
   return value
 }
@@ -53,7 +52,6 @@ export const getSessStorage = (key: string) => {
   if (!key) Promise.reject("没有key！")
   if (!sessionStorage.getItem(key)) return null
   const value = sessionStorage.getItem(key) as string
-  console.log("value", value)
   if (value.includes("{")) return JSON.parse(value)
   return value
 }
