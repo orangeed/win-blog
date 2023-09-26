@@ -5,7 +5,7 @@
     <img :src="img" class="img" />
     <!-- 桌面菜单 -->
     <div class="menu flex flex-col flex-wrap">
-      <div v-for="(item, index) in deskMenu" :key="index" class="menu-item" @dblclick="handleOpenMenu(item)">
+      <div v-for="(item, index) in deskMenu" :key="index" class="menu-item" @click="handleOpenMenu(item)">
         <!-- <SVG :name="item.icon" :width="40" :height="40"></SVG> -->
         <img :src="getAssetsImage(item.icon)" class="icon" />
         <span class="text-sm">{{ item.label }}</span>
@@ -25,7 +25,14 @@
       <p class="text-right">--{{ author }}</p>
     </div>
     <!-- 弹窗 -->
-    <Dialog :showDialog="showDialog" :title="title" :img="img" @CLOSE="handleClose" @LEFTINDEX="handleGetRight"></Dialog>
+    <Dialog
+      :showDialog="showDialog"
+      :title="title"
+      :img="img"
+      :showAbout="showAbout"
+      @CLOSE="handleClose"
+      @LEFTINDEX="handleGetRight"
+    ></Dialog>
   </div>
 </template>
 

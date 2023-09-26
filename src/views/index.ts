@@ -68,7 +68,7 @@ export default defineComponent({
     // 获取屏幕分辨率
     const handleGetWindow = () => {
       let width = window.innerWidth
-      showAbout.value = width > 600
+      showAbout.value = width > 950
     }
     handleGetWindow()
     window.onresize = () => {
