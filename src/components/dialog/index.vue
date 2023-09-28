@@ -138,7 +138,7 @@ const handleClick = (item: any) => {
       handleGetMovieList(index + 1)
       break
     case "工具箱":
-      if (item === 0) {
+      if (item === 1) {
         rightList.value = softList
       } else {
         rightList.value = gameList
@@ -225,7 +225,7 @@ watch(
           break
         case "工具箱":
           leftList.value = toolList
-          rightList.value = softList
+          rightList.value = gameList
           break
         case "更新日志":
           leftList.value = []

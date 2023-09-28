@@ -151,13 +151,13 @@ export const codeList: StateList[] = [
 // 工具箱
 export const toolList: StateList[] = [
   {
-    value: 1,
+    value: 0,
     label: "小游戏",
     icon: shallowRef(Gamepad),
     color: "#2ec9ce"
   },
   {
-    value: 0,
+    value: 1,
     label: "软件",
     icon: shallowRef(Innosoft),
     color: "#00a170"
@@ -183,12 +183,12 @@ export const softList: any[] = [
 export const gameList: any[] = [
   {
     name: "在线魔方",
-    img: "/src/assets/img/cube.jpg",
+    img: "/assets/img/cube.jpg",
     url: "https://www.orangecj.cn/cube/"
   },
   {
     name: "今天吃个啥",
-    img: "/src/assets/img/eat.jpg",
+    img: "/assets/img/eat.jpg",
     url: "https://www.orangecj.cn/eat/"
   }
 ]
