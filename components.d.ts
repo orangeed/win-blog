@@ -8,11 +8,14 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     About: typeof import('./src/components/about/index.vue')['default']
+    DetailDialog: typeof import('./src/components/detailDialog/index.vue')['default']
     Dialog: typeof import('./src/components/dialog/index.vue')['default']
     Footer: typeof import('./src/components/footer/index.vue')['default']
     MarkdownEditor: typeof import('./src/components/MarkdownEditor/index.vue')['default']
     NA: typeof import('naive-ui')['NA']
     NCard: typeof import('naive-ui')['NCard']
+    NDialogProvider: typeof import('naive-ui')['NDialogProvider']
+    NEmpty: typeof import('naive-ui')['NEmpty']
     NH1: typeof import('naive-ui')['NH1']
     NH2: typeof import('naive-ui')['NH2']
     NH3: typeof import('naive-ui')['NH3']
@@ -20,7 +23,6 @@ declare module 'vue' {
     NImage: typeof import('naive-ui')['NImage']
     NLi: typeof import('naive-ui')['NLi']
     NModal: typeof import('naive-ui')['NModal']
-    NTag: typeof import('naive-ui')['NTag']
     NTooltip: typeof import('naive-ui')['NTooltip']
     NUl: typeof import('naive-ui')['NUl']
     Svg: typeof import('./src/components/svg/index.vue')['default']

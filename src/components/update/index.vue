@@ -2,6 +2,16 @@
   <div id="update">
     <n-h1>更新日志</n-h1>
     <div class="update-box">
+      <n-h2>2023.09.28</n-h2>
+      <n-h3>🚀新增</n-h3>
+      <n-ul>
+        <n-li>重写了整个博客页面</n-li>
+        <n-li>新增了魔方小游戏</n-li>
+        <n-li>新增了今天吃什么功能</n-li>
+        <n-li>预计增加去水印功能...</n-li>
+      </n-ul>
+    </div>
+    <div class="update-box">
       <n-h2>2023.07.15</n-h2>
       <n-h3>🚀新增</n-h3>
       <n-ul>
@@ -103,7 +113,7 @@
 
 <style lang="scss" scoped>
 #update {
-  margin: 40px;
+  margin: 40px 0px 40px 40px;
   height: calc(80vh - 120px);
   overflow: auto;
 
@@ -116,6 +126,5 @@
   li {
     @apply text-white;
   }
-  
 }
 </style>

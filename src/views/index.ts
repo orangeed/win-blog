@@ -42,7 +42,6 @@ export default defineComponent({
     // 获取一言
     const handleGetOne = () => {
       getOneTips().then((res: any) => {
-        console.log("res", res)
         Object.assign(tips, res.data)
       })
     }
@@ -50,7 +49,6 @@ export default defineComponent({
 
     // 打开菜单
     const handleOpenMenu = (item: StateList) => {
-      console.log("item", item)
       showDialog.value = true
       title.value = item.label
     }
@@ -58,11 +56,6 @@ export default defineComponent({
     // 关闭菜单
     const handleClose = () => {
       showDialog.value = false
-    }
-
-    // 获取弹窗右边的数据
-    const handleGetRight = (item: any) => {
-      console.log("获取弹窗右边的数据", item)
     }
 
     // 获取屏幕分辨率
@@ -84,8 +77,7 @@ export default defineComponent({
       getAssetsImage,
       showDialog,
       handleClose,
-      title,
-      handleGetRight
+      title
     }
   }
 })

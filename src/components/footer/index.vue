@@ -2,31 +2,14 @@
   <footer class="mt-16 h-24 flex flex-col justify-center items-center text-white font-bold">
     <slot />
     <p class="cursor-pointer text-hover" @click.stop="handleToGov">蜀ICP备2022021714号-1</p>
-    <p>Copyright © 2022-2023 by orange <span class="cursor-pointer text-hover" @click.stop="isUpdateCom = true">更新说明 </span></p>
+    <p>Copyright © 2022-2023 by orange</p>
   </footer>
-  <n-modal
-    v-model:show="isUpdateCom"
-    preset="dialog"
-    title=""
-    size="huge"
-    role="dialog"
-    aria-modal="true"
-    style="width: 50%; margin: 40px auto"
-  >
-    <UpdateCom />
-  </n-modal>
 </template>
 
 <script lang="ts" setup>
-import { Ref, ref } from "vue"
-import UpdateCom from "../update/index.vue"
-
 const handleToGov = () => {
   window.open("https://beian.miit.gov.cn/", "_black")
 }
-
-// 是否打开更新
-const isUpdateCom: Ref<boolean> = ref(false)
 </script>
 
 <style scoped lang="scss">

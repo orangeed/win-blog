@@ -25,14 +25,7 @@
       <p class="text-right">--{{ author }}</p>
     </div>
     <!-- 弹窗 -->
-    <Dialog
-      :showDialog="showDialog"
-      :title="title"
-      :img="img"
-      :showAbout="showAbout"
-      @CLOSE="handleClose"
-      @LEFTINDEX="handleGetRight"
-    ></Dialog>
+    <Dialog :showDialog="showDialog" :title="title" :img="img" :showAbout="showAbout" @CLOSE="handleClose"></Dialog>
   </div>
 </template>
 

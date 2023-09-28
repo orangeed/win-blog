@@ -1,20 +1,18 @@
 <!-- MarkdownEditor -->
 <template>
-  <div id="editor">
-    <!-- <MdEditor v-model="editorText" :previewOnly="true" :theme="theme === 'dark' ? 'dark' : 'light'" /> -->
-    <MdEditor v-model="editorText" :previewOnly="true" />
-  </div>
+  <!-- <MdEditor v-model="editorText" :previewOnly="true" theme="dark" /> -->
+  <MdPreview v-model="editorText"  theme="dark" />
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, Ref, nextTick } from "vue"
-import MdEditor from "md-editor-v3"
+import { defineComponent, Ref, ref } from "vue"
+import { MdPreview,MdEditor } from "md-editor-v3"
 import "md-editor-v3/lib/style.css"
-// import { emitter } from "../utils/mitt"
+// import { StateList } from "../../types"
 
 export default defineComponent({
   name: "MarkdownEditor",
-  components: { MdEditor },
+  components: { MdPreview ,MdEditor},
   props: {
     editorText: {
       type: String,
@@ -22,24 +20,34 @@ export default defineComponent({
         return {}
       }
     }
+  },
+  setup() {
+    // 背景
+    const img: Ref<string> = ref("")
+
+    // 是否显示关于
+    const showAbout: Ref<boolean> = ref(true)
+
+    // 是否显示弹窗
+    const showDialog: Ref<boolean> = ref(false)
+
+    // 弹窗标题
+    const title: Ref<string> = ref("")
+
+    // 关闭菜单
+    const handleClose = () => {
+      showDialog.value = false
+    }
+
+    return {
+      img,
+      // handleOpenMenu,
+      showAbout,
+      showDialog,
+      handleClose,
+      title
+    }
   }
-  //   setup() {
-  //     const theme: Ref<string | null> = ref("")
-  //     const color: Ref<string> = ref("")
-  //     nextTick(() => {
-  //       theme.value = window.localStorage.getItem("THEME")
-  //     })
-  //     emitter.on("theme", (themeItem: any) => {
-  //       if (themeItem) {
-  //         theme.value = "dark"
-  //         color.value = "#101014"
-  //       } else {
-  //         theme.value = "light"
-  //         color.value = ""
-  //       }
-  //     })
-  //     return { theme, color }
-  //   }
 })
 </script>
 <style lang="scss" scoped>
@@ -47,14 +55,14 @@ export default defineComponent({
   height: 100%;
 }
 .md-editor {
-  height: 100%;
+  height: 83vh !important;
+  border-radius: 10px;
+  // background: transparent;
 }
-// :deep(.md-editor-dark) {
-//   background-color: v-bind("color") !important;
-// }
+
 :deep(blockquote) {
   border-left-color: rgb(239, 112, 96) !important;
-  background: #fff9f9 !important;
+  background: #646869 !important;
   display: block;
   font-size: 0.9em;
   overflow: auto;
@@ -72,7 +80,7 @@ export default defineComponent({
   margin-bottom: 15px;
   padding: 0px;
   font-weight: bold;
-  color: black;
+  color: #dbdbdb;
   display: block;
   margin-block-start: 0.83em;
   margin-block-end: 0.83em;
@@ -115,5 +123,9 @@ export default defineComponent({
   background-color: #fcddb4;
   padding: 6px 6px;
   border-radius: 4px;
+}
+.md-editor-dark {
+  --md-color: #dbdbdb;
+  --md-bk-color: #2b2a2ac2;
 }
 </style>

@@ -1,6 +1,6 @@
 import { shallowRef } from "vue"
 import { StateList } from "../types"
-import { JsSquare, Vuejs, Python, MobileAlt, StickyNoteRegular, Airbnb, Innosoft, BabyCarriage, Book,Gamepad } from "@vicons/fa"
+import { JsSquare, Vuejs, Python, MobileAlt, StickyNoteRegular, Airbnb, Innosoft, BabyCarriage, Book, Gamepad } from "@vicons/fa"
 import { LocalMoviesSharp, MovieFilterFilled } from "@vicons/material"
 
 // 文章分类
@@ -151,15 +151,44 @@ export const codeList: StateList[] = [
 // 工具箱
 export const toolList: StateList[] = [
   {
-    value: 0,
-    label: "软件",
-    icon: shallowRef(Innosoft),
-    color: "#00a170"
-  },
-  {
     value: 1,
     label: "小游戏",
     icon: shallowRef(Gamepad),
     color: "#2ec9ce"
   },
+  {
+    value: 0,
+    label: "软件",
+    icon: shallowRef(Innosoft),
+    color: "#00a170"
+  }
+]
+
+// 工具箱软件
+export const softList: any[] = [
+  {
+    name: "autojs 4.1.1 去更新版",
+    img: "https://s1.ax1x.com/2023/07/14/pC4bH7d.png",
+    describe:
+      "关注公众号【橘子的分享】，回复autojs获取下载链接。这个是最开始的免费版，取消了插件等几个功能，不然点击到了就会闪退。毕竟这个版本很久不维护了，但是能用。"
+  },
+  {
+    name: "Internet Download Manager",
+    img: "https://s1.ax1x.com/2023/07/14/pC4qo80.png",
+    describe: "关注公众号【橘子的分享】，回复IDM获取下载链接。网页嗅探器，可以下载网页上识别到的媒体，比如视频或者照片等。"
+  }
+]
+
+// 工具箱小游戏
+export const gameList: any[] = [
+  {
+    name: "在线魔方",
+    img: "/src/assets/img/cube.jpg",
+    url: "https://www.orangecj.cn/cube/"
+  },
+  {
+    name: "今天吃个啥",
+    img: "/src/assets/img/eat.jpg",
+    url: "https://www.orangecj.cn/eat/"
+  }
 ]
