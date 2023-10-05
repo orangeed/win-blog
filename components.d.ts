@@ -22,6 +22,7 @@ declare module 'vue' {
     NIcon: typeof import('naive-ui')['NIcon']
     NImage: typeof import('naive-ui')['NImage']
     NLi: typeof import('naive-ui')['NLi']
+    NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NModal: typeof import('naive-ui')['NModal']
     NTooltip: typeof import('naive-ui')['NTooltip']
     NUl: typeof import('naive-ui')['NUl']

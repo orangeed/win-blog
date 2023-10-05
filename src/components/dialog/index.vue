@@ -75,7 +75,13 @@
     </div>
     <slot></slot>
   </n-modal>
-  <DetailDialog :showDialog="showDialogDetail" :img="props.img" :detailInfo="detailInfo" @CLOSE="handleCloseDetail" />
+  <DetailDialog
+    :showDialog="showDialogDetail"
+    :img="props.img"
+    :detailInfo="detailInfo"
+    :show-about="props.showAbout"
+    @CLOSE="handleCloseDetail"
+  />
 </template>
 
 <script lang="ts" setup name="dialog">
@@ -87,6 +93,8 @@ import { getHomeArticleList, getReadList, getMovieList, getHomeFindDetails } fro
 import { AirplanemodeActiveOutlined } from "@vicons/material"
 import { useDialog } from "naive-ui"
 import DetailDialog from "../detailDialog/index.vue"
+import { useMessage } from "naive-ui"
+import type { MessageReactive } from "naive-ui"
 
 const props = defineProps<{ showDialog: boolean; title: string; img: string; showAbout: boolean }>()
 
@@ -112,6 +120,8 @@ const isUpdate: Ref<boolean> = ref(false)
 
 // 是否显示详情
 const showDialogDetail: Ref<boolean> = ref(false)
+
+let messageReactive: MessageReactive | null = null
 
 // 关闭
 const handleClose = () => {
@@ -152,23 +162,41 @@ const handleClick = (item: any) => {
 
 // 获取文章列表
 const handleGetArticleList = (tag: string) => {
-  getHomeArticleList({ pageNum: 1, pageSize: 999, tag }).then((res: any) => {
-    rightList.value = res.data.list
-  })
+  handlecreateMessage()
+
+  getHomeArticleList({ pageNum: 1, pageSize: 999, tag })
+    .then((res: any) => {
+      rightList.value = res.data.list
+    })
+    .finally(() => {
+      handleremoveMessage()
+    })
 }
 
 // 获取图书列表
 const handleGetBookList = () => {
-  getReadList({ pageNum: 1, pageSize: 999 }).then((res: any) => {
-    rightList.value = res.data.list
-  })
+  handlecreateMessage()
+
+  getReadList({ pageNum: 1, pageSize: 999 })
+    .then((res: any) => {
+      rightList.value = res.data.list
+    })
+    .finally(() => {
+      handleremoveMessage()
+    })
 }
 
 // 获取影视列表
 const handleGetMovieList = (type: number) => {
-  getMovieList({ pageNum: 1, pageSize: 999, type }).then((res: any) => {
-    rightList.value = res.data.list
-  })
+  handlecreateMessage()
+
+  getMovieList({ pageNum: 1, pageSize: 999, type })
+    .then((res: any) => {
+      rightList.value = res.data.list
+    })
+    .finally(() => {
+      handleremoveMessage()
+    })
 }
 
 // 获取文章详情
@@ -176,10 +204,15 @@ const dialog = useDialog()
 const handleGetDeatil = (item: any) => {
   switch (props.title) {
     case "文章":
-      getHomeFindDetails({ id: item.id }).then((res: any) => {
-        Object.assign(detailInfo, res.data)
-        showDialogDetail.value = true
-      })
+      handlecreateMessage()
+      getHomeFindDetails({ id: item.id })
+        .then((res: any) => {
+          Object.assign(detailInfo, res.data)
+          showDialogDetail.value = true
+        })
+        .finally(() => {
+          handleremoveMessage()
+        })
       break
     case "放映室":
       // handleGetMovieList(index + 1)
@@ -194,6 +227,22 @@ const handleGetDeatil = (item: any) => {
 
     default:
       break
+  }
+}
+
+const message = useMessage()
+const handlecreateMessage = () => {
+  if (!messageReactive) {
+    messageReactive = message.info("师傅慢一点，正在加载中，网不太好！！！", {
+      duration: 0,
+    })
+  }
+}
+
+const handleremoveMessage = () => {
+  if (messageReactive) {
+    messageReactive.destroy()
+    messageReactive = null
   }
 }
 
