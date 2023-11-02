@@ -4,7 +4,7 @@
     v-model:show="props.showDialog"
     preset="dialog"
     :style="{
-      width: '50%',
+      width: props.showAbout ? '50%' : '100%',
       height: '96vh',
       margin: '0px auto',
       '--img': 'url(' + props.img + ')'
@@ -30,7 +30,7 @@
 <script lang="ts" setup name="detailDialog">
 import MarkdownEditor from "../MarkdownEditor/index.vue"
 
-const props = defineProps<{ showDialog: boolean; img: string; detailInfo: any }>()
+const props = defineProps<{ showDialog: boolean; img: string; detailInfo: any; showAbout: boolean }>()
 
 const emits = defineEmits(["CLOSE"])
 

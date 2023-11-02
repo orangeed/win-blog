@@ -1,7 +1,9 @@
 <template>
-  <n-dialog-provider>
-    <Index />
-  </n-dialog-provider>
+  <n-message-provider>
+    <n-dialog-provider>
+      <Index />
+    </n-dialog-provider>
+  </n-message-provider>
 </template>
 <script setup lang="ts">
 import Index from "./views/index.vue"
