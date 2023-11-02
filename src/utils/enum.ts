@@ -1,7 +1,7 @@
 import { shallowRef } from "vue"
 import { StateList } from "../types"
 import { JsSquare, Vuejs, Python, MobileAlt, StickyNoteRegular, Airbnb, Innosoft, BabyCarriage, Book, Gamepad } from "@vicons/fa"
-import { LocalMoviesSharp, MovieFilterFilled } from "@vicons/material"
+import { LocalMoviesSharp, MovieFilterFilled, HistoryEduRound } from "@vicons/material"
 
 // 文章分类
 export const stateList: StateList[] = [
@@ -52,6 +52,12 @@ export const stateList: StateList[] = [
     label: "生活",
     icon: shallowRef(BabyCarriage),
     color: "#c21f30"
+  },
+  {
+    value: 8,
+    label: "历史",
+    icon: shallowRef(HistoryEduRound),
+    color: "#d9c8aa"
   }
 ]
 
