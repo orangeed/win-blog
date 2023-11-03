@@ -2,6 +2,14 @@
   <div id="update">
     <n-h1>更新日志</n-h1>
     <div class="update-box">
+      <n-h2>2023.11.03</n-h2>
+      <n-h3>🚀新增</n-h3>
+      <n-ul>
+        <n-li>新增了文章分类</n-li>
+        <n-li>新增了贪吃蛇小游戏</n-li>
+      </n-ul>
+    </div>
+    <div class="update-box">
       <n-h2>2023.09.28</n-h2>
       <n-h3>🚀新增</n-h3>
       <n-ul>

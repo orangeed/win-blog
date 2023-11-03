@@ -2,6 +2,7 @@ import { shallowRef } from "vue"
 import { StateList } from "../types"
 import { JsSquare, Vuejs, Python, MobileAlt, StickyNoteRegular, Airbnb, Innosoft, BabyCarriage, Book, Gamepad } from "@vicons/fa"
 import { LocalMoviesSharp, MovieFilterFilled, HistoryEduRound } from "@vicons/material"
+import { routerMap } from "../router/routerMap"
 
 // 文章分类
 export const stateList: StateList[] = [
@@ -103,7 +104,8 @@ export const deskMenu: StateList[] = [
 
 // 缓存
 export enum Stoage {
-  BGIMG = "bgimg"
+  BGIMG = "bgimg",
+  SCORE = "score"
 }
 
 // 阅读
@@ -196,5 +198,10 @@ export const gameList: any[] = [
     name: "今天吃个啥",
     img: "/assets/img/eat.jpg",
     url: "https://www.orangecj.cn/eat/"
+  },
+  {
+    name: "贪吃蛇",
+    img: "/assets/img/snake.jpg",
+    url: routerMap.SNAKE
   }
 ]

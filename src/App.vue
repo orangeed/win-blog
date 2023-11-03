@@ -1,12 +1,12 @@
 <template>
   <n-message-provider>
     <n-dialog-provider>
-      <Index />
+      <router-view />
     </n-dialog-provider>
   </n-message-provider>
 </template>
 <script setup lang="ts">
-import Index from "./views/index.vue"
+// import Index from "./views/index.vue"
 </script>
 
 <style>

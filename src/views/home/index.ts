@@ -1,12 +1,12 @@
-import { getImg, getOneTips } from "../serve/index"
+import { getImg, getOneTips } from "../../serve/index"
 import { defineComponent, reactive, Ref, ref, toRefs } from "vue"
-import { Stoage, deskMenu } from "../utils/enum"
-import About from "../components/about/index.vue"
-import Footer from "../components/footer/index.vue"
-import { StateList, Tips } from "../types"
-import { getAssetsImage } from "../utils"
-import Dialog from "../components/dialog/index.vue"
-import { setStorage } from "../utils/storage"
+import { Stoage, deskMenu } from "../../utils/enum"
+import About from "../../components/about/index.vue"
+import Footer from "../../components/footer/index.vue"
+import { StateList, Tips } from "../../types"
+import { getAssetsImage } from "../../utils"
+import Dialog from "../../components/dialog/index.vue"
+import { setStorage } from "../../utils/storage"
 
 export default defineComponent({
   name: "Index",
